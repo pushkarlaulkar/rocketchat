@@ -49,5 +49,8 @@ services:
       - /opt/services/conf/nginx.conf:/opt/bitnami/nginx/conf/nginx.conf
       - /opt/services/certs:/certs
     restart: unless-stopped
+    networks:
+      - services_net
 networks:
-  - services_net
+  services_net:
+    driver: bridge
