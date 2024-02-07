@@ -1,7 +1,7 @@
 version: '3'
 services:
   rocketchat:
-    image: rocket.chat:5.4.4
+    image: rocket.chat:6.4.2
     container_name: rocketchat
     restart: unless-stopped
     volumes:
@@ -20,7 +20,7 @@ services:
     networks:
       - services_net
   mongodb:
-    image: mongo:5.0
+    image: mongo:5.0.23
     container_name: mongodb
     restart: unless-stopped
     command: mongod --bind_ip_all  --oplogSize "128" --replSet rs0
@@ -41,7 +41,7 @@ services:
 
   nginx:
     container_name: nginx
-    image: bitnami/nginx:latest
+    image: bitnami/nginx:1.25.0
     ports:
       - "80:8080"
       - "443:8443"
